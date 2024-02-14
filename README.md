@@ -1,11 +1,15 @@
 # Homble Backend Assessment
 
-This repository is for the assessment of the backend engineer position at Homble ([www.homble.in](http://www.homble.in)). Interested candidates are expected to fork the repo, build out the challenges listed below, and share their fork back with us. If you can complete all of the actual challenge modules in about 2-4 hours, then you may be a good fit for the role.
+This repository is for the assessment of the backend engineer position at Homble ([www.homble.in](https://www.homble.in)).
+
+We are looking for devs to work on our API services that are built on Django (Python based web-framework) and Django REST Framework (DRF). We need devs to have a good knowledge of Django and know the basics of DRF (serializers, function based views, and authentication/ permissions).
+
+Interested candidates are expected to fork this repo, build out the challenges listed below, and share their fork back with us. If you are familiar with Django and DRF, this entire assessment could take you about 2-4 hours depending on your current proficiency level.
 
 ## Background Information and Preparation
 
 - Our backend is an API based on Django Rest Framework, so candidates are expected to be reasonably well versed with Python, Django, and DRF.
-- Your code is expected to be run on Python 3.8 and Django 3.2. We understand that these are not the latest, but this is what we currently have in our production environment, so please code for this.
+- Your code is expected to be run on Python 3.8 and Django 3.2. We understand that these are not the latest, but these are what we currently have in our production environment, so please code accordingly.
 - This repo contains the source code, list of dependencies (requirements.txt), a small sqlite DB instance and a postman collection. We understand that including a DB instance in a repo is not a recommended practice but believe it works here to simply reduce and speed up the work that candidates are required to do.
 
 **To begin working on this assessment:**
@@ -45,9 +49,9 @@ Wish you all the best! 🙂
 - Do code the challenges in the given order, and create a separate commit for each assessment module.
 - We only want DRF function based views. No Django views or templates.
 
-## Basic Challenges
+## Required Challenges
 
-This section has 3 modules, so we need 3 commits. If you find any of these difficult, the role we are hiring for is not suitable for you.
+This section has 3 modules, so we need 3 commits.
 
 ### Extend the Product model and API:
 - Extend the existing `products_list` view to accept a query parameter to show only refrigerated products or only non-refrigerated products. The existing functionality of showing all products should be the default if the query parameter is not provided or is empty.
@@ -78,9 +82,9 @@ This section has 3 modules, so we need 3 commits. If you find any of these diffi
 - Create the migration and migrate the DB
 - Add some reasonable new Sku objects (1-3 for each product) in the DB via Django Admin.
 
-## Intermediate Challenges
+## Bar Raiser Challenges
 
-This section has 3 modules, so we need 3 commits. If you can do all of these, we would want to talk to you.
+This section has 3 modules, so we need 3 commits. Will you raise the bar?
 
 ### Extend the price functionality, plus management command:
 - Now you can drop the `price` field from the Product table. And simultaneously, we also need more granularity in price fields in the SKU table.
@@ -90,7 +94,7 @@ This section has 3 modules, so we need 3 commits. If you can do all of these, we
   - new field `cost_price` - PositiveSmallIntegerField
 - Override the model save method to always set `selling_price` = `cost_price` + `platform_commission` while saving.
 - Update Admin interfaces, serializers, and other code as you see fit.
-- If there were a lot of existing Sku records when we added these new price fields, we would need to automatically update the price fields, and not do it individually via Django Admin. Do this with a management command using Django’s `BaseCommand` (and not `migrations.RunPython`). Assume that our DevOps setup ensures that this management command is automatically run immediately after the `migrate` command (but you can run it manually on your dev).
+- If there were a lot of existing Sku records when we added these new price fields, we would need to automatically update the price fields, and not do it individually via Django Admin. Do this with a management command using Django’s `BaseCommand` (and not `migrations.RunPython`). Assume that our DevOps setup ensures that this management command is automatically run immediately after the `migrate` command (but you can run it manually in your dev env).
 - In the command, use a queryset update to make the `platform_commission` to 25% of `selling_price` and the `cost_price` to the difference of the two.
 - Now migrate the DB and run the management command in your dev.
 
