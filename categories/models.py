@@ -10,6 +10,11 @@ class Category(models.Model):
     name = models.CharField(max_length=30)
     is_active = models.BooleanField(default=True)
 
+    #  property count_products for model Category to count the number of products in each model
+    @property
+    def count_products(self):
+        return self.products.count()
+
     def __str__(self):
         if self.is_active:
             return f"{self.name} (#{self.id})"

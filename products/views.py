@@ -20,7 +20,7 @@ def products_list(request):
 
     if refrigerated_params == "true":
         products = Product.objects.filter(is_refrigerated=True)
-        
+
     elif refrigerated_params == "false":
         products = Product.objects.filter(is_refrigerated=False)
     else:
