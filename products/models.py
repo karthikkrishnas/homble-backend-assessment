@@ -41,7 +41,18 @@ class Product(models.Model):
         null=True,
         on_delete=models.SET_NULL,
     )
+    # ingrediants added by me 
+    
+    ingredients = models.CharField(
+        max_length=500,
+        help_text=_("Add new ingredients "),
+        null = True,
+        )
     created_at = models.DateTimeField(auto_now_add=True)
+    
+    # ingrediants added by me 
+    edited_at = models.DateTimeField(auto_now = True)
+
 
     def save(self, *args, **kwargs):
         self.name = self.name.strip().title()

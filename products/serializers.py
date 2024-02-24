@@ -8,6 +8,8 @@ class ProductListSerializer(serializers.ModelSerializer):
     To show list of products.
     """
 
+    
+
     class Meta:
         model = Product
-        fields = ["name", "price"]
+        fields = ["name", "price", "ingredients", "is_refrigerated"]
