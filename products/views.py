@@ -28,8 +28,3 @@ def products_list(request):
 
     serializer = ProductListSerializer(products, many=True)
     return Response({"products": serializer.data}, status=HTTP_200_OK)
-
-
-# /////////////////////////////
-#   refrigerated products view
-# /////////////////////////////

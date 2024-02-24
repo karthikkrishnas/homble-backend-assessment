@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "a9d0061d-e55a-4a0a-b0d4-f6e1a55d9012",
+		"name": "Homble MT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30399316"
+	},
+	"item": [
+		{
+			"name": "Homble",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/products/?refrigerated=false",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						""
+					],
+					"query": [
+						{
+							"key": "refrigerated",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Products_listing refrigerated = true",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/?refrigerated=true",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "refrigerated",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Feb 2024 12:50:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "188"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"products\": [\n        {\n            \"name\": \"Chocolate Cake\",\n            \"price\": 60,\n            \"ingredients\": \"Chocolate\",\n            \"is_refrigerated\": true\n        },\n        {\n            \"name\": \"Organic Alphonso Mango\",\n            \"price\": 180,\n            \"ingredients\": null,\n            \"is_refrigerated\": true\n        }\n    ]\n}"
+				},
+				{
+					"name": "category list displaying",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/category",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"category"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Feb 2024 12:52:15 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "960"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"count_products\": 2,\n        \"products\": [\n            {\n                \"name\": \"Sona Masoori Rice\",\n                \"price\": 60,\n                \"ingredients\": null,\n                \"is_refrigerated\": false\n            },\n            {\n                \"name\": \"Basmati Rice\",\n                \"price\": 200,\n                \"ingredients\": null,\n                \"is_refrigerated\": false\n            }\n        ],\n        \"name\": \"Cereals\",\n        \"is_active\": true\n    },\n    {\n        \"id\": 2,\n        \"count_products\": 2,\n        \"products\": [\n            {\n                \"name\": \"Toor Dal\",\n                \"price\": 80,\n                \"ingredients\": null,\n                \"is_refrigerated\": false\n            },\n            {\n                \"name\": \"Channa Dal\",\n                \"price\": 80,\n                \"ingredients\": null,\n                \"is_refrigerated\": false\n            }\n        ],\n        \"name\": \"Pulses\",\n        \"is_active\": false\n    },\n    {\n        \"id\": 3,\n        \"count_products\": 3,\n        \"products\": [\n            {\n                \"name\": \"Chocolate Cake\",\n                \"price\": 60,\n                \"ingredients\": \"Chocolate\",\n                \"is_refrigerated\": true\n            },\n            {\n                \"name\": \"Whole Wheat Bread\",\n                \"price\": 50,\n                \"ingredients\": \"wheat\",\n                \"is_refrigerated\": false\n            },\n            {\n                \"name\": \"Chocolate Cup Cake\",\n                \"price\": 90,\n                \"ingredients\": \"Chocolate,\",\n                \"is_refrigerated\": false\n            }\n        ],\n        \"name\": \"Baked Goods\",\n        \"is_active\": true\n    },\n    {\n        \"id\": 4,\n        \"count_products\": 1,\n        \"products\": [\n            {\n                \"name\": \"Biscuts\",\n                \"price\": 85,\n                \"ingredients\": \"chocolate\",\n                \"is_refrigerated\": false\n            }\n        ],\n        \"name\": \"Bakery\",\n        \"is_active\": true\n    }\n]"
+				},
+				{
+					"name": "Product_listing refrigerated = false",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/?refrigerated=false",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "refrigerated",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Feb 2024 12:54:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "584"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"products\": [\n        {\n            \"name\": \"Sona Masoori Rice\",\n            \"price\": 60,\n            \"ingredients\": null,\n            \"is_refrigerated\": false\n        },\n        {\n            \"name\": \"Basmati Rice\",\n            \"price\": 200,\n            \"ingredients\": null,\n            \"is_refrigerated\": false\n        },\n        {\n            \"name\": \"Toor Dal\",\n            \"price\": 80,\n            \"ingredients\": null,\n            \"is_refrigerated\": false\n        },\n        {\n            \"name\": \"Channa Dal\",\n            \"price\": 80,\n            \"ingredients\": null,\n            \"is_refrigerated\": false\n        },\n        {\n            \"name\": \"Whole Wheat Bread\",\n            \"price\": 50,\n            \"ingredients\": \"wheat\",\n            \"is_refrigerated\": false\n        },\n        {\n            \"name\": \"Chocolate Cup Cake\",\n            \"price\": 90,\n            \"ingredients\": \"Chocolate,\",\n            \"is_refrigerated\": false\n        },\n        {\n            \"name\": \"Biscuts\",\n            \"price\": 85,\n            \"ingredients\": \"chocolate\",\n            \"is_refrigerated\": false\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}

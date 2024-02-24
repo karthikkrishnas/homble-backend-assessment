@@ -41,18 +41,17 @@ class Product(models.Model):
         null=True,
         on_delete=models.SET_NULL,
     )
-    # ingrediants added by me 
-    
+    # ingrediants added by me
+
     ingredients = models.CharField(
         max_length=500,
         help_text=_("Add new ingredients "),
-        null = True,
-        )
+        null=True,
+    )
     created_at = models.DateTimeField(auto_now_add=True)
-    
-    # ingrediants added by me 
-    edited_at = models.DateTimeField(auto_now = True)
 
+    # ingrediants added by me
+    edited_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         self.name = self.name.strip().title()
@@ -67,3 +66,15 @@ class Product(models.Model):
         ordering = []
         verbose_name = "Product"
         verbose_name_plural = "Products"
+
+
+# new model Sku
+
+
+class Sku(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    size = models.PositiveSmallIntegerField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return f"{self.product.name} - {self.size} gm"

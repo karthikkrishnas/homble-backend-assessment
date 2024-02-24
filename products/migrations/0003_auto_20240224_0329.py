@@ -6,18 +6,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0002_alter_product_options'),
+        ("products", "0002_alter_product_options"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='edited_at',
+            model_name="product",
+            name="edited_at",
             field=models.DateTimeField(auto_now=True),
         ),
         migrations.AddField(
-            model_name='product',
-            name='ingredients',
-            field=models.CharField(help_text='Add new ingredients ', max_length=500, null=True),
+            model_name="product",
+            name="ingredients",
+            field=models.CharField(
+                help_text="Add new ingredients ", max_length=500, null=True
+            ),
         ),
     ]
