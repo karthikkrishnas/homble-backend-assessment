@@ -19,11 +19,8 @@ def products_list(request):
     refrigerated_params = request.GET.get("refrigerated")
 
     if refrigerated_params == "true":
-
-        print("testing my products")
         products = Product.objects.filter(is_refrigerated=True)
-        print(products)
-
+        
     elif refrigerated_params == "false":
         products = Product.objects.filter(is_refrigerated=False)
     else:
