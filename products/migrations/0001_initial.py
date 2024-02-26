@@ -10,26 +10,79 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('categories', '0001_initial'),
+        ("categories", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(help_text='This will be displayed to user as-is', max_length=150, unique=True, verbose_name='display name')),
-                ('price', models.PositiveSmallIntegerField(help_text='Price payable by customer (Rs.)', verbose_name='selling price (Rs.)')),
-                ('description', models.TextField(help_text='Few sentences that showcase the appeal of the product', unique=True, verbose_name='descriptive write-up')),
-                ('is_refrigerated', models.BooleanField(default=False, help_text='Whether the product needs to be refrigerated')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='products', to='categories.category')),
-                ('managed_by', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='managed_products', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        help_text="This will be displayed to user as-is",
+                        max_length=150,
+                        unique=True,
+                        verbose_name="display name",
+                    ),
+                ),
+                (
+                    "price",
+                    models.PositiveSmallIntegerField(
+                        help_text="Price payable by customer (Rs.)",
+                        verbose_name="selling price (Rs.)",
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(
+                        help_text="Few sentences that showcase the appeal of the product",
+                        unique=True,
+                        verbose_name="descriptive write-up",
+                    ),
+                ),
+                (
+                    "is_refrigerated",
+                    models.BooleanField(
+                        default=False,
+                        help_text="Whether the product needs to be refrigerated",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "category",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="products",
+                        to="categories.category",
+                    ),
+                ),
+                (
+                    "managed_by",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="managed_products",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'db_table': 'product',
-                'ordering': [],
+                "db_table": "product",
+                "ordering": [],
             },
         ),
     ]

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "products",
     "categories",
+    "update_sku_prices",
 ]
 
 MIDDLEWARE = [
