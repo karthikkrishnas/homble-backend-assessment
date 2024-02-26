@@ -53,3 +53,20 @@ class ProductListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ["name", "ingredients", "is_refrigerated", "sku"]
+
+
+
+
+class SkuListSerializer(serializers.ModelSerializer):
+    """
+    To show list of sku with category.
+    """
+
+    category = serializers.StringRelatedField(source="product.category")
+    product = ProductListSerializer()
+
+    
+
+    class Meta:
+        model = Sku
+        fields = ["product", "size", "selling_price", "category"]

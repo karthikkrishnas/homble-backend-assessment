@@ -1,0 +1,547 @@
+{
+	"info": {
+		"_postman_id": "a9d0061d-e55a-4a0a-b0d4-f6e1a55d9012",
+		"name": "Homble MT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30399316"
+	},
+	"item": [
+		{
+			"name": "Homble",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/products/?refrigerated=false",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						""
+					],
+					"query": [
+						{
+							"key": "refrigerated",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Products_listing refrigerated = true",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/?refrigerated=true",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "refrigerated",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Feb 2024 12:50:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "188"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"products\": [\n        {\n            \"name\": \"Chocolate Cake\",\n            \"price\": 60,\n            \"ingredients\": \"Chocolate\",\n            \"is_refrigerated\": true\n        },\n        {\n            \"name\": \"Organic Alphonso Mango\",\n            \"price\": 180,\n            \"ingredients\": null,\n            \"is_refrigerated\": true\n        }\n    ]\n}"
+				},
+				{
+					"name": "category list displaying",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/category",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"category"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Feb 2024 12:52:15 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "960"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"count_products\": 2,\n        \"products\": [\n            {\n                \"name\": \"Sona Masoori Rice\",\n                \"price\": 60,\n                \"ingredients\": null,\n                \"is_refrigerated\": false\n            },\n            {\n                \"name\": \"Basmati Rice\",\n                \"price\": 200,\n                \"ingredients\": null,\n                \"is_refrigerated\": false\n            }\n        ],\n        \"name\": \"Cereals\",\n        \"is_active\": true\n    },\n    {\n        \"id\": 2,\n        \"count_products\": 2,\n        \"products\": [\n            {\n                \"name\": \"Toor Dal\",\n                \"price\": 80,\n                \"ingredients\": null,\n                \"is_refrigerated\": false\n            },\n            {\n                \"name\": \"Channa Dal\",\n                \"price\": 80,\n                \"ingredients\": null,\n                \"is_refrigerated\": false\n            }\n        ],\n        \"name\": \"Pulses\",\n        \"is_active\": false\n    },\n    {\n        \"id\": 3,\n        \"count_products\": 3,\n        \"products\": [\n            {\n                \"name\": \"Chocolate Cake\",\n                \"price\": 60,\n                \"ingredients\": \"Chocolate\",\n                \"is_refrigerated\": true\n            },\n            {\n                \"name\": \"Whole Wheat Bread\",\n                \"price\": 50,\n                \"ingredients\": \"wheat\",\n                \"is_refrigerated\": false\n            },\n            {\n                \"name\": \"Chocolate Cup Cake\",\n                \"price\": 90,\n                \"ingredients\": \"Chocolate,\",\n                \"is_refrigerated\": false\n            }\n        ],\n        \"name\": \"Baked Goods\",\n        \"is_active\": true\n    },\n    {\n        \"id\": 4,\n        \"count_products\": 1,\n        \"products\": [\n            {\n                \"name\": \"Biscuts\",\n                \"price\": 85,\n                \"ingredients\": \"chocolate\",\n                \"is_refrigerated\": false\n            }\n        ],\n        \"name\": \"Bakery\",\n        \"is_active\": true\n    }\n]"
+				},
+				{
+					"name": "Product_listing refrigerated = false",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/?refrigerated=false",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "refrigerated",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Feb 2024 12:54:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "584"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"products\": [\n        {\n            \"name\": \"Sona Masoori Rice\",\n            \"price\": 60,\n            \"ingredients\": null,\n            \"is_refrigerated\": false\n        },\n        {\n            \"name\": \"Basmati Rice\",\n            \"price\": 200,\n            \"ingredients\": null,\n            \"is_refrigerated\": false\n        },\n        {\n            \"name\": \"Toor Dal\",\n            \"price\": 80,\n            \"ingredients\": null,\n            \"is_refrigerated\": false\n        },\n        {\n            \"name\": \"Channa Dal\",\n            \"price\": 80,\n            \"ingredients\": null,\n            \"is_refrigerated\": false\n        },\n        {\n            \"name\": \"Whole Wheat Bread\",\n            \"price\": 50,\n            \"ingredients\": \"wheat\",\n            \"is_refrigerated\": false\n        },\n        {\n            \"name\": \"Chocolate Cup Cake\",\n            \"price\": 90,\n            \"ingredients\": \"Chocolate,\",\n            \"is_refrigerated\": false\n        },\n        {\n            \"name\": \"Biscuts\",\n            \"price\": 85,\n            \"ingredients\": \"chocolate\",\n            \"is_refrigerated\": false\n        }\n    ]\n}"
+				},
+				{
+					"name": "Homble",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product\": 1,  \n  \"size\": 500,   \n  \"measurement_unit\": \"gm\",\n  \"platform_commission\": 10,\n  \"cost_price\": 40  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/create_sku/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"create_sku",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 10:34:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "89"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"product\": 1,\n    \"size\": 500,\n    \"measurement_unit\": \"gm\",\n    \"platform_commission\": 10,\n    \"cost_price\": 40\n}"
+				},
+				{
+					"name": "product_detail",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product\": 1,  \n  \"size\": 500,   \n  \"measurement_unit\": \"gm\",\n  \"platform_commission\": 10,\n  \"cost_price\": 40  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/product_detail/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"product_detail",
+								"1",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 10:50:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "259"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"products\": {\n        \"name\": \"Sona Masoori Rice\",\n        \"ingredients\": \"Cerials\",\n        \"is_refrigerated\": false,\n        \"sku\": [\n            {\n                \"product\": 1,\n                \"size\": 300,\n                \"selling_price\": \"132.50\",\n                \"markup_percentage\": 33.33333333333333\n            },\n            {\n                \"product\": 1,\n                \"size\": 500,\n                \"selling_price\": \"75.00\",\n                \"markup_percentage\": 25\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "all active categories",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product\": 1,  \n  \"size\": 500,   \n  \"measurement_unit\": \"gm\",\n  \"platform_commission\": 10,\n  \"cost_price\": 40  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/active_categories/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"active_categories",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:28:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "151"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Cereals\",\n        \"approved_sku_count\": 2\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Baked Goods\",\n        \"approved_sku_count\": 2\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Bakery\",\n        \"approved_sku_count\": 1\n    }\n]"
+				},
+				{
+					"name": "all Skus including its category.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product\": 1,  \n  \"size\": 500,   \n  \"measurement_unit\": \"gm\",\n  \"platform_commission\": 10,\n  \"cost_price\": 40  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/Skus_category/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"Skus_category",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:51:27 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2846"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Skus_category\": [\n        {\n            \"product\": {\n                \"name\": \"Chocolate Cup Cake\",\n                \"ingredients\": \"Chocolate,\",\n                \"is_refrigerated\": false,\n                \"sku\": [\n                    {\n                        \"product\": 8,\n                        \"size\": 200,\n                        \"selling_price\": \"131.25\",\n                        \"markup_percentage\": 32.6530612244898\n                    }\n                ]\n            },\n            \"size\": 200,\n            \"selling_price\": \"131.25\",\n            \"category\": \"Baked Goods (#3)\"\n        },\n        {\n            \"product\": {\n                \"name\": \"Whole Wheat Bread\",\n                \"ingredients\": \"wheat\",\n                \"is_refrigerated\": false,\n                \"sku\": [\n                    {\n                        \"product\": 6,\n                        \"size\": 500,\n                        \"selling_price\": \"129.00\",\n                        \"markup_percentage\": 32.98969072164948\n                    }\n                ]\n            },\n            \"size\": 500,\n            \"selling_price\": \"129.00\",\n            \"category\": \"Baked Goods (#3)\"\n        },\n        {\n            \"product\": {\n                \"name\": \"Organic Alphonso Mango\",\n                \"ingredients\": null,\n                \"is_refrigerated\": true,\n                \"sku\": [\n                    {\n                        \"product\": 7,\n                        \"size\": 650,\n                        \"selling_price\": \"130.75\",\n                        \"markup_percentage\": 33.33333333333333\n                    }\n                ]\n            },\n            \"size\": 650,\n            \"selling_price\": \"130.75\",\n            \"category\": null\n        },\n        {\n            \"product\": {\n                \"name\": \"Sona Masoori Rice\",\n                \"ingredients\": \"Cerials\",\n                \"is_refrigerated\": false,\n                \"sku\": [\n                    {\n                        \"product\": 1,\n                        \"size\": 300,\n                        \"selling_price\": \"132.50\",\n                        \"markup_percentage\": 33.33333333333333\n                    },\n                    {\n                        \"product\": 1,\n                        \"size\": 500,\n                        \"selling_price\": \"75.00\",\n                        \"markup_percentage\": 25\n                    }\n                ]\n            },\n            \"size\": 300,\n            \"selling_price\": \"132.50\",\n            \"category\": \"Cereals (#1)\"\n        },\n        {\n            \"product\": {\n                \"name\": \"Channa Dal\",\n                \"ingredients\": null,\n                \"is_refrigerated\": false,\n                \"sku\": [\n                    {\n                        \"product\": 4,\n                        \"size\": 500,\n                        \"selling_price\": \"130.00\",\n                        \"markup_percentage\": 32.6530612244898\n                    }\n                ]\n            },\n            \"size\": 500,\n            \"selling_price\": \"130.00\",\n            \"category\": \"Pulses [INACTIVE]\"\n        },\n        {\n            \"product\": {\n                \"name\": \"Biscuts\",\n                \"ingredients\": \"chocolate\",\n                \"is_refrigerated\": false,\n                \"sku\": [\n                    {\n                        \"product\": 9,\n                        \"size\": 200,\n                        \"selling_price\": \"118.75\",\n                        \"markup_percentage\": 33.33333333333333\n                    }\n                ]\n            },\n            \"size\": 200,\n            \"selling_price\": \"118.75\",\n            \"category\": \"Bakery (#4)\"\n        },\n        {\n            \"product\": {\n                \"name\": \"Chocolate Cake\",\n                \"ingredients\": \"Chocolate\",\n                \"is_refrigerated\": true,\n                \"sku\": [\n                    {\n                        \"product\": 5,\n                        \"size\": 650,\n                        \"selling_price\": \"118.50\",\n                        \"markup_percentage\": 33.33333333333333\n                    }\n                ]\n            },\n            \"size\": 650,\n            \"selling_price\": \"118.50\",\n            \"category\": \"Baked Goods (#3)\"\n        },\n        {\n            \"product\": {\n                \"name\": \"Basmati Rice\",\n                \"ingredients\": null,\n                \"is_refrigerated\": false,\n                \"sku\": [\n                    {\n                        \"product\": 2,\n                        \"size\": 250,\n                        \"selling_price\": \"78.75\",\n                        \"markup_percentage\": 33.33333333333333\n                    }\n                ]\n            },\n            \"size\": 250,\n            \"selling_price\": \"78.75\",\n            \"category\": \"Cereals (#1)\"\n        },\n        {\n            \"product\": {\n                \"name\": \"Toor Dal\",\n                \"ingredients\": null,\n                \"is_refrigerated\": false,\n                \"sku\": [\n                    {\n                        \"product\": 3,\n                        \"size\": 200,\n                        \"selling_price\": \"105.00\",\n                        \"markup_percentage\": 33.33333333333333\n                    }\n                ]\n            },\n            \"size\": 200,\n            \"selling_price\": \"105.00\",\n            \"category\": \"Pulses [INACTIVE]\"\n        },\n        {\n            \"product\": {\n                \"name\": \"Strawberry Cake\",\n                \"ingredients\": \"strawberry\",\n                \"is_refrigerated\": true,\n                \"sku\": [\n                    {\n                        \"product\": 11,\n                        \"size\": 0,\n                        \"selling_price\": \"200.00\",\n                        \"markup_percentage\": 33.33333333333333\n                    }\n                ]\n            },\n            \"size\": 0,\n            \"selling_price\": \"200.00\",\n            \"category\": \"Baked Goods (#3)\"\n        },\n        {\n            \"product\": {\n                \"name\": \"Sona Masoori Rice\",\n                \"ingredients\": \"Cerials\",\n                \"is_refrigerated\": false,\n                \"sku\": [\n                    {\n                        \"product\": 1,\n                        \"size\": 300,\n                        \"selling_price\": \"132.50\",\n                        \"markup_percentage\": 33.33333333333333\n                    },\n                    {\n                        \"product\": 1,\n                        \"size\": 500,\n                        \"selling_price\": \"75.00\",\n                        \"markup_percentage\": 25\n                    }\n                ]\n            },\n            \"size\": 500,\n            \"selling_price\": \"75.00\",\n            \"category\": \"Cereals (#1)\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}

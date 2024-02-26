@@ -12,7 +12,14 @@ from rest_framework.status import (
 )
 
 from .models import Product, Sku
-from .serializers import ProductListSerializer, SkuSerializer, SkuCreateSerializer
+from .serializers import (
+    ProductListSerializer,
+    SkuSerializer,
+    SkuCreateSerializer,
+    SkuListSerializer,
+)
+from categories.models import Category
+from django.db.models import Count, Q
 
 
 @api_view(["GET"])
@@ -97,3 +104,25 @@ def edit_sku_status(request, sku_id):
     return JsonResponse(
         {"error": "Invalid request method"}, status=HTTP_405_METHOD_NOT_ALLOWED
     )
+
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def active_categories_with_sku_count(request):
+    active_categories = (
+        Category.objects.filter(is_active=True)
+        .annotate(
+            approved_sku_count=Count("products__sku", filter=Q(products__sku__status=1))
+        )
+        .values("id", "name", "approved_sku_count")
+    )
+
+    return Response({"active_categories": active_categories}, status=HTTP_200_OK)
+
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def all_skus_with_category(request):
+    skus = Sku.objects.select_related("product__category").all()
+    serializer = SkuListSerializer(skus, many=True)
+    return Response({"Skus_category": serializer.data}, status=HTTP_200_OK)
