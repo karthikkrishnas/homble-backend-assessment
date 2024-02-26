@@ -48,7 +48,7 @@ class Product(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # ingrediants added by me
+   
 
     edited_at = models.DateTimeField(auto_now=True)
 
@@ -60,14 +60,11 @@ class Product(models.Model):
         return f"{self.name} )"
 
     class Meta:
-        # Just to be explicit.
+       
         db_table = "product"
         ordering = []
         verbose_name = "Product"
         verbose_name_plural = "Products"
-
-
-# new model Sku
 
 
 class Sku(models.Model):
@@ -75,6 +72,27 @@ class Sku(models.Model):
     size = models.PositiveSmallIntegerField(
         null=True, blank=True, help_text=("Size and quantity of the products in gms")
     )
+
+    measurement_unit = models.CharField(
+        max_length=2,
+        choices=[
+            ("gm", "Grams"),
+            ("kg", "Kilograms"),
+            ("mL", "Milliliters"),
+            ("L", "Liters"),
+            ("pc", "Piece"),
+        ],
+        default="gm",
+    )
+    status = models.IntegerField(
+        choices=[
+            (0, "Pending for approval"),
+            (1, "Approved"),
+            (2, "Discontinued"),
+        ],
+        default=0,
+    )
+
     selling_price = models.DecimalField(
         _("selling price (Rs.)"),
         help_text=_("Price payable by customer (Rs.)"),
@@ -87,8 +105,16 @@ class Sku(models.Model):
     cost_price = models.PositiveBigIntegerField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
-        self.selling_price = self.cost_price + self.platform_commission
+        if self.cost_price is not None and self.platform_commission is not None:
+            self.selling_price = self.cost_price + self.platform_commission
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.product.name} - {self.size} gm"
+        return (
+            f"{self.product.name} - {self.size} {self.get_measurement_unit_display()}"
+        )
+
+    class Meta:
+        constraints = [
+            models.CheckConstraint(check=models.Q(size__lte=999), name="size_limit")
+        ]

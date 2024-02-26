@@ -48,13 +48,13 @@ class ProductInline(admin.StackedInline):
 @admin.register(Sku)
 class SkuAdmin(admin.ModelAdmin):
     autocomplete_fields = ["product"]
-    list_display = ("id", "product", "size", "selling_price")
+    list_display = ("id", "product", "size", "selling_price","status")
     ordering = ("id",)
-    search_fields = ("product__name",)
+    search_fields = ("product__name","status")
     list_filter = ("size",)
     fields = (
         ("product",),
-        ("size", "selling_price", "platform_commission", "cost_price"),
+        ("size", "selling_price", "platform_commission", "cost_price","status"),
         ("id"),
     )
     readonly_fields = ("id", "selling_price")
