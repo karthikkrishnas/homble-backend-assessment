@@ -14,10 +14,7 @@ class Product(models.Model):
         unique=True,
         help_text=_("This will be displayed to user as-is"),
     )
-    price = models.PositiveSmallIntegerField(
-        _("selling price (Rs.)"),
-        help_text=_("Price payable by customer (Rs.)"),
-    )
+
     description = models.TextField(
         _("descriptive write-up"),
         unique=True,
@@ -47,10 +44,12 @@ class Product(models.Model):
         max_length=500,
         help_text=_("Add new ingredients "),
         null=True,
+        blank=True,
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
     # ingrediants added by me
+
     edited_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
@@ -58,7 +57,7 @@ class Product(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.name} (Rs. {self.price})"
+        return f"{self.name} )"
 
     class Meta:
         # Just to be explicit.
@@ -73,8 +72,23 @@ class Product(models.Model):
 
 class Sku(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    size = models.PositiveSmallIntegerField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    size = models.PositiveSmallIntegerField(
+        null=True, blank=True, help_text=("Size and quantity of the products in gms")
+    )
+    selling_price = models.DecimalField(
+        _("selling price (Rs.)"),
+        help_text=_("Price payable by customer (Rs.)"),
+        max_digits=10,
+        decimal_places=2,
+        null=True,
+        blank=True,
+    )
+    platform_commission = models.PositiveBigIntegerField(null=True, blank=True)
+    cost_price = models.PositiveBigIntegerField(null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        self.selling_price = self.cost_price + self.platform_commission
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.product.name} - {self.size} gm"

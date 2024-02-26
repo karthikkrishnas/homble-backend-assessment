@@ -9,18 +9,18 @@ class SkuInline(admin.StackedInline):
     """
 
     model = Sku
-    extra = 0
+    extra = 1
     ordering = ("-id",)
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "price", "managed_by")
+    list_display = ("name" , "managed_by")
     ordering = ("-id",)
     search_fields = ("name",)
     list_filter = ("is_refrigerated", "category", "ingredients")
     fields = (
-        ("name", "price"),
+        ("name" ),
         ("category", "is_refrigerated"),
         "description",
         "ingredients",
@@ -40,7 +40,7 @@ class ProductInline(admin.StackedInline):
     model = Product
     extra = 0
     ordering = ("-id",)
-    readonly_fields = ("name", "price", "is_refrigerated")
+    readonly_fields = ("name", "is_refrigerated")
     fields = (readonly_fields,)
     show_change_link = True
 
@@ -48,13 +48,13 @@ class ProductInline(admin.StackedInline):
 @admin.register(Sku)
 class SkuAdmin(admin.ModelAdmin):
     autocomplete_fields = ["product"]
-    list_display = ("id", "product", "size", "price")
+    list_display = ("id", "product", "size", "selling_price")
     ordering = ("id",)
     search_fields = ("product__name",)
     list_filter = ("size",)
     fields = (
         ("product",),
-        ("size", "price"),
+        ("size", "selling_price", "platform_commission", "cost_price"),
         ("id"),
     )
-    readonly_fields = ("id",)
+    readonly_fields = ("id", "selling_price")
