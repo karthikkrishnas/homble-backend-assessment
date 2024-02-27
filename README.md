@@ -15,14 +15,14 @@ Interested candidates are expected to copy everything in this repo to their own 
 **To begin working on this assessment:**
 
 1. First copy everything in this repo to your own new repo, which should be made private.
-2. You can add the owner of this repo, `karthikkrishnas`, as a collaborator in your private repo. Do all of the work in your own new private repo and push your commits to submit them for evaluation.
-3. Set up your virtual environment based on Python 3.8 and activate it. Pip install the dependencies in requirements.txt, create your superuser account, and then run the Django dev server.
-4. Go through the below overview section to get a general understanding of what the code base currently contains.
-5. Log in to the Django Admin site using your superuser credentials and go through what's already there. Then open the included Postman collection in your Postman tool, go through and test out any available requests.
+2. Set up your virtual environment based on Python 3.8 and activate it. Pip install the dependencies in requirements.txt, create your superuser account, and then run the Django dev server.
+3. Go through the below Overview section to get a general understanding of what the code base currently contains.
+4. Log in to the Django Admin site using your superuser credentials and go through what's already there. Then open the included Postman collection in your Postman tool, go through and test out any available requests.
+5. Do all of the work in your own new private repo and push your commits as you complete them.
 
 You are now ready to start coding, feel free to use any programming tools and aids you please. But do understand that you will later need to explain your work and make modifications on the fly during interactions with the Homble team.
 
-This is the first time we are doing this assessment, your feedback is welcome at tech@homble.in. Please do reach out if you have any questions or difficulties.
+After you are done with your work and you are ready to submit it for evaluation, please add the the owner of this repo, `karthikkrishnas`, as a collaborator in your private repo. And email tech@homble.in saying that you have submitted your work for evaluation. Do ensure that you have included the updated postman collection in the repo. Without these final steps, we will not be able to evaluate your work.
 
 Wish you all the best! 🙂
 
