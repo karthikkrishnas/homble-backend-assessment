@@ -20,7 +20,7 @@ class Product(models.Model):
     )
     description = models.TextField(
         _("descriptive write-up"),
-        unique=True,
+        unique=False,
         help_text=_("Few sentences that showcase the appeal of the product"),
     )
     is_refrigerated = models.BooleanField(
@@ -41,7 +41,19 @@ class Product(models.Model):
         null=True,
         on_delete=models.SET_NULL,
     )
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(
+        auto_now_add=True
+        )
+    edited_at = models.DateTimeField(
+        blank=True,
+        null=True,
+        )
+    ingredients = models.CharField(
+        blank=True,
+        null=True,
+        max_length=500,
+        )
+    
 
     def save(self, *args, **kwargs):
         self.name = self.name.strip().title()
